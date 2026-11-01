@@ -6,7 +6,7 @@
     <title>RiseMTA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -66,13 +66,15 @@
             border-radius: 2px;
         }
 
-        /* Weboldal tartalma */
+        /* Weboldal tartalma háttérképpel */
         #content {
             display: none;
             opacity: 0;
             transition: opacity 0.8s ease;
-            padding: 40px;
-            text-align: center;
+            min-height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('hatter.png') no-repeat center center / cover;
+            padding: 20px;
         }
 
         #content.show {
@@ -80,8 +82,65 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
             opacity: 1;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .main-logo {
+            width: 110px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(0, 206, 158, 0.5));
+        }
+
+        .cards-grid {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 240px;
+            max-width: 280px;
+            background: rgba(15, 15, 15, 0.85);
+            border: 1px solid rgba(0, 206, 158, 0.2);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #00CE9E;
+            box-shadow: 0 8px 25px rgba(0, 206, 158, 0.3);
+            background: rgba(20, 20, 20, 0.95);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #00CE9E;
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -95,10 +154,28 @@
         </div>
     </div>
 
-    <!-- Ide jön a weboldal tartalma -->
+    <!-- Weboldal tartalma -->
     <div id="content">
-        <h1>Üdvözlünk a RiseMTA oldalán!</h1>
-        <p>A weboldal sikeresen betöltött.</p>
+        <div class="main-container">
+            <img src="logo.png" alt="RiseMTA Logo" class="main-logo">
+            
+            <div class="cards-grid">
+                <a href="#" class="card">
+                    <h2>Szerver Szabályzat</h2>
+                    <p>Olvasd el a szerver alapvető viselkedési és RP szabályait.</p>
+                </a>
+                
+                <a href="#" class="card">
+                    <h2>Discord Szabályzat</h2>
+                    <p>Ismerd meg a közösségi Discord szerverünk szabályait.</p>
+                </a>
+                
+                <a href="#" class="card">
+                    <h2>UCP</h2>
+                    <p>Jelentkezz be a felhasználói fiókodba és kezeld a karaktered.</p>
+                </a>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -107,7 +184,6 @@
         const loader = document.getElementById('loader');
         const content = document.getElementById('content');
 
-        // Egyenletes, sima töltés megállás nélkül (kb. 2.5 másodperc)
         const interval = setInterval(() => {
             progress += 1;
             fill.style.width = progress + '%';
@@ -115,7 +191,6 @@
             if (progress >= 100) {
                 clearInterval(interval);
                 
-                // Amint eléri a 100%-ot, elhalványul és megjeleníti az oldalt
                 setTimeout(() => {
                     loader.style.opacity = '0';
                     setTimeout(() => {

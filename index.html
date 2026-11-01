@@ -34,31 +34,43 @@
 
         .logo {
             width: 80px;
-            height: 80px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(0, 206, 158, 0.3));
+            height: auto;
+            margin-bottom: 25px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 12px rgba(0, 206, 158, 0.4));
         }
 
-        .title {
-            color: #ffffff;
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+        .progress-bar {
+            width: 200px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 65%;
+            background-color: #00CE9E;
+            box-shadow: 0 0 8px rgba(0, 206, 158, 0.6);
+            border-radius: 2px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- SVG Logó (a képen látható zöld/türkiz ikon alapján) -->
-        <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 10 L85 30 L85 70 L50 90 L15 70 L15 30 Z" stroke="#00CE9E" stroke-width="8" fill="none" stroke-linejoin="round" />
-            <path d="M50 32 L68 43 L68 65 L50 76 L32 65 L32 50" stroke="#00CE9E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
+        <!-- A te saját logo.png fájlod -->
+        <img src="logo.png" alt="Logo" class="logo">
 
-        <!-- Felirat -->
-        <h1 class="title">RISEMTA</h1>
+        <!-- Betöltőcsík -->
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
     </div>
 
 </body>

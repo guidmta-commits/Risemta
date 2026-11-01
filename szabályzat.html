@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiseMTA - Szerver Szabályzat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('hatter.png') no-repeat center center fixed;
+            background-size: cover;
+            line-height: 1.6;
+        }
+
+        /* Bal felső sarok sáv */
+        .top-left-brand {
+            position: fixed;
+            top: 25px;
+            left: 35px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 100;
+            background: rgba(15, 15, 15, 0.85);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 206, 158, 0.2);
+            backdrop-filter: blur(8px);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .top-left-brand:hover {
+            border-color: #00CE9E;
+            box-shadow: 0 0 15px rgba(0, 206, 158, 0.3);
+        }
+
+        .top-left-brand img {
+            width: 35px;
+            height: auto;
+            filter: drop-shadow(0 0 6px rgba(0, 206, 158, 0.5));
+        }
+
+        .top-left-brand span {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: lowercase;
+        }
+
+        /* Fő tartalom doboz */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px 60px 20px;
+        }
+
+        .rules-card {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid rgba(0, 206, 158, 0.2);
+            border-radius: 12px;
+            padding: 45px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #00CE9E;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 206, 158, 0.3);
+        }
+
+        .update-date {
+            text-align: center;
+            color: #888888;
+            font-size: 0.9rem;
+            margin-bottom: 35px;
+        }
+
+        /* Tartalomjegyzék */
+        .toc {
+            background: rgba(25, 25, 25, 0.7);
+            border-left: 4px solid #00CE9E;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 40px;
+        }
+
+        .toc h2 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 8px;
+        }
+
+        .toc li a {
+            color: #00CE9E;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .toc li a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Szabályzat szövegezés */
+        h3 {
+            color: #00CE9E;
+            font-size: 1.4rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: #cccccc;
+        }
+
+        ul.rule-list {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        ul.rule-list li {
+            margin-bottom: 12px;
+            padding-left: 15px;
+            border-left: 2px solid rgba(0, 206, 158, 0.4);
+        }
+
+        .sub-desc {
+            color: #999999;
+            font-size: 0.88rem;
+            margin-top: 4px;
+            padding-left: 15px;
+        }
+
+        /* Vissza gomb */
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: #00CE9E;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+
+        .back-home:hover {
+            transform: translateX(-5px);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+            .rules-card {
+                padding: 20px;
+            }
+            .top-left-brand {
+                top: 15px;
+                left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bal felső sarok sáv (Visszatérés a főoldalra) -->
+    <a href="index.html" class="top-left-brand">
+        <img src="logo.png" alt="RiseMTA Logo">
+        <span>risemta.hu</span>
+    </a>
+
+    <div class="container">
+        <div class="rules-card">
+            <h1>NightLite Szerver Szabályzat</h1>
+            <div class="update-date">Utoljára módosítva: 2026. 10. 11. 16:00</div>
+
+            <!-- Tartalomjegyzék -->
+            <div class="toc" id="tartalomjegyzék">
+                <h2>Tartalomjegyzék:</h2>
+                <ul>
+                    <li><a href="#kommunikacio">Kommunikációt elősegítő szavak, fogalmak</a></li>
+                    <li><a href="#altalanos-parancsok">Általános parancsok</a></li>
+                    <li><a href="#frakcio-parancsok">Frakció parancsok</a></li>
+                    <li><a href="#altalanos-szabalyok">Általános szabályok/fogalmak</a></li>
+                    <li><a href="#adminok">Adminokkal kapcsolatos információk, szabályok</a></li>
+                    <li><a href="#account">Accountra/karakterre vonatkozó szabályok</a></li>
+                    <li><a href="#ooc-szabalyok">OOC szabályok</a></li>
+                    <li><a href="#egyeb-szabalyok">Egyéb szabályok</a></li>
+                    <li><a href="#pp-event">PP / Event itemek</a></li>
+                    <li><a href="#pp-itemek">PP itemekre vonatkozó szabályok</a></li>
+                    <li><a href="#rendszamok">Egyedi rendszámokra vonatkozó szabályok</a></li>
+                    <li><a href="#paintjob">Egyedi paintjobokra vonatkozó szabályok</a></li>
+                    <li><a href="#rablas">Rablással kapcsolatos szabályok</a></li>
+                    <li><a href="#tuszejtes">Túszejtésre vonatkozó szabályok</a></li>
+                    <li><a href="#atveres">Átveréssel kapcsolatos szabályok</a></li>
+                    <li><a href="#hirdetesek">Hirdetésekre vonatkozó szabályok</a></li>
+                    <li><a href="#atm">ATM Rablásra vonatkozó szabályok</a></li>
+                </ul>
+            </div>
+
+            <!-- Szabályzat Tartalom -->
+            <h3 id="kommunikacio">Kommunikációt elősegítő szavak, fogalmak</h3>
+            <ul class="rule-list">
+                <li><strong>-HQ</strong><div class="sub-desc">↳ Egy adott frakció bázisa.</div></li>
+                <li><strong>-IRL</strong><div class="sub-desc">↳ In Real Life -> a valóságban.</div></li>
+                <li><strong>-IC</strong><div class="sub-desc">↳ In Character, karakteren belüli dolgok. "T" Gomb megnyomásával használható az IC chat.</div></li>
+                <li><strong>-OOC</strong><div class="sub-desc">↳ Out Of Character, karakteren kívüli dolgok. "B" Gomb megnyomásával használható az OOC chat.</div></li>
+                <li><strong>-PK</strong><div class="sub-desc">↳ Panaszkönyv. Ha valaki a szerveren szabályzati vétséget követ el, képpel / loggal bizonyítva egy fórum topicot nyitva lehet panaszt tenni ellene.</div></li>
+                <li><strong>-Crash</strong><div class="sub-desc">↳ Játékhiba, valami ok folytán a GTA San Andreas leállása.</div></li>
+                <li><strong>-Adminisztrátor (admin)</strong><div class="sub-desc">↳ A szerver, és a játékosok segítői, rendben tartói.</div></li>
+                <li><strong>-Kick</strong><div class="sub-desc">↳ Szerverről való kirúgás.</div></li>
+                <li><strong>-Jail</strong><div class="sub-desc">↳ Szabályzat megszegése esetén kapható büntetés. Börtön, 4 fal között töltött idő.</div></li>
+                <li><strong>-Ban</strong><div class="sub-desc">↳ Időleges vagy végleges kitiltás a játékból.</div></li>
+                <li><strong>-RP</strong><div class="sub-desc">↳ Roleplay - Annyit tükröz, szerepjáték, való élettel megegyező viselkedés.</div></li>
+                <li><strong>-IG</strong><div class="sub-desc">↳ In-Game, játékon belüli történések.</div></li>
+                <li><strong>-AFK</strong><div class="sub-desc">↳ Away From Keyboard - Nincs a gépnél. A szerveren 20 percet lehet AFK-olni.</div></li>
+                <li><strong>-CK</strong><div class="sub-desc">↳ Characterkill, avagy kivégzés.</div></li>
+                <li><strong>-TGF</strong><div class="sub-desc">↳ Tagfelvétel, pl egy adott frakcióba.</div></li>
+                <li><strong>-RTC</strong><div class="sub-desc">↳ Jármű respawnolása.</div></li>
+                <li><strong>-Fix</strong><div class="sub-desc">↳ Egy jármű megjavítása.</div></li>
+                <li><strong>-Get</strong><div class="sub-desc">↳ Játékos vagy jármű teleportálás.</div></li>
+                <li><strong>-Spawn</strong><div class="sub-desc">↳ Leéledési pont.</div></li>
+                <li><strong>-PP</strong><div class="sub-desc">↳ Prémium Pont.</div></li>
+                <li><strong>-CP</strong><div class="sub-desc">↳ Check Point Pl.: Interior bejárat.</div></li>
+                <li><strong>-SSC / NSC</strong><div class="sub-desc">↳ Night Slot Coin, kaszinó zseton.</div></li>
+                <li><strong>-Item</strong><div class="sub-desc">↳ Tárgy a játékon belül.</div></li>
+                <li><strong>-NonScript Frakció</strong><div class="sub-desc">↳ A NonScript frakció olyan frakció amelynek nincs F3 panelje illetve a szerver nem nyújt neki Scriptet.</div></li>
+            </ul>
+
+            <h3 id="altalanos-parancsok">Általános parancsok</h3>
+            <ul class="rule-list">
+                <li><code>/nearbyvehicles2</code> <div class="sub-desc">↳ A közelben lévő járművek lekérdezése.</div></li>
+                <li><code>/getpos</code> <div class="sub-desc">↳ Karakter pozíciójának lekérdezése, szerver oldalon.</div></li>
+                <li><code>/getposc</code> <div class="sub-desc">↳ Karakter pozíciójának lekérdezése, kliens oldalon.</div></li>
+                <li><code>/do</code> <div class="sub-desc">↳ A játékon belüli animációval nem megjeleníthető, indirekt történéseket jelenít meg.</div></li>
+                <li><code>/me</code> <div class="sub-desc">↳ A játékon belüli animációval nem megjeleníthető, szándékos cselekvés.</div></li>
+                <li><code>/r</code> <div class="sub-desc">↳ Rádiófrekvencia használata.</div></li>
+                <li><code>/b</code> <div class="sub-desc">↳ OOC chat használata.</div></li>
+                <li><code>/pay</code> <div class="sub-desc">↳ Pénz átadása másik játékosnak.</div></li>
+                <li><code>/id</code> <div class="sub-desc">↳ Egy játékos ID-jének lekérdezése.</div></li>
+                <li><code>/megprobal</code> <div class="sub-desc">↳ Roleplayt elősegítő parancs, 50-50% eséllyel sikerül-nem sikerül.</div></li>
+                <li><code>/s</code> <div class="sub-desc">↳ IC chaten való kiabálás.</div></li>
+            </ul>
+
+            <h3 id="frakcio-parancsok">Frakció parancsok</h3>
+            <ul class="rule-list">
+                <li><code>/gov</code> <div class="sub-desc">↳ Frakció felhívás.</div></li>
+                <li><code>/gclean / graffity</code> <div class="sub-desc">↳ Graffiti kezelése.</div></li>
+                <li><code>/policelock</code> <div class="sub-desc">↳ Interior lezárása.</div></li>
+                <li><code>/d</code> <div class="sub-desc">↳ Sürgősségi rádió használata.</div></li>
+                <li><code>/mdc</code> <div class="sub-desc">↳ MDC panel megjelenítése.</div></li>
+                <li><code>/spike</code> <div class="sub-desc">↳ Szögesdrót használata.</div></li>
+                <li><code>/m</code> <div class="sub-desc">↳ Megaphone használata.</div></li>
+            </ul>
+
+            <h3 id="altalanos-szabalyok">Általános szabályok/fogalmak</h3>
+            <ul class="rule-list">
+                <li>A szerver hivatalos nyelve a magyar.</li>
+                <li><strong>-MG - MetaGaming:</strong> OOC információ felhasználása IC.</li>
+                <li><strong>-DM - DeathMatch:</strong> Ok nélküli ölés.</li>
+                <li><strong>-RK - RevengeKill:</strong> Halál utáni bosszú.</li>
+                <li><strong>-PG - PowerGaming:</strong> Hősködés, olyan dolog amit a valóságban nem mernél megtenni.</li>
+                <li><strong>-DB - Drive-By:</strong> Emberölés járművel.</li>
+                <li><strong>-SK - SpawnKill:</strong> Spawnoláskor ölés.</li>
+                <li><strong>-Force RP:</strong> Tilos a saját RP-det más játékosra ráerőltetned!</li>
+            </ul>
+
+            <h3 id="adminok">Adminokkal kapcsolatos információk, szabályok</h3>
+            <ul class="rule-list">
+                <li>Az adminok a szerver szabályzatának betartatásáért felelnek. Panaszkönyvet fórumon nyithatsz.</li>
+                <li>Az admint bármilyen formában rágalmazni/minősíteni tilos!</li>
+                <li>Tilos az adminoknak hazudni!</li>
+                <li>Admintól tilos javítást, tankolást, jármű teleportálást, skint kérni.</li>
+                <li>Csak az az admin vehet ki jailből, aki berakott!</li>
+            </ul>
+
+            <h3 id="account">Accountra/karakterre vonatkozó szabályok</h3>
+            <ul class="rule-list">
+                <li>Karakter adás-vétel és csere szigorúan tilos (örökös kitiltás jár érte).</li>
+                <li>Tilos az account megosztás.</li>
+                <li>Tilos az OOC kereskedelem és a vagyonátruházás.</li>
+                <li>Egy játékos egy felhasználói fiók használatára jogosult!</li>
+            </ul>
+
+            <h3 id="ooc-szabalyok">OOC szabályok</h3>
+            <ul class="rule-list">
+                <li>Tilos más szerver hirdetése.</li>
+                <li>Az OOC szidás és az OOC hazudás szigorúan tilos.</li>
+                <li>Tilos bármiféle segédprogram (Cheat, AntiAFK, automata zsetonpakoló) használata.</li>
+                <li>Szigorúan tilos a szerveren bugot kihasználni.</li>
+            </ul>
+
+            <h3 id="egyeb-szabalyok">Egyéb szabályok</h3>
+            <ul class="rule-list">
+                <li>Tilos az RP szituáció közbeni kilépés.</li>
+                <li>Tilos az élet feltöltése lövöldözés, üldözés közben vagy közvetlen után!</li>
+                <li>IC – OOC keverése szigorúan tilos (MG).</li>
+            </ul>
+
+            <h3 id="pp-event">PP / Event itemek</h3>
+            <ul class="rule-list">
+                <li>Minden prémium pontból vásárolt tárgy PP-s itemnek minősül, fegyvereknél bizonylat szükséges az inventoryban.</li>
+                <li>Event itemnek minősül minden olyan tárgy, amit csak egy bizonyos időszakban lehet megszerezni (pl. tök, ajándék, húsvéti tojás).</li>
+            </ul>
+
+            <h3 id="pp-itemek">PP itemekre vonatkozó szabályok</h3>
+            <ul class="rule-list">
+                <li>Játékmenetet befolyásoló itemeket csak abban az esetben lehet használni, ha az nem befolyásolja a többiek játékát.</li>
+                <li>A halálból magát bárki felélesztheti respawn kártyával, de el kell hagynia a helyszínt.</li>
+                <li>Fixkártyát tilos RP szituációban/üldözés közben használni.</li>
+            </ul>
+
+            <h3 id="rendszamok">Egyedi rendszámokra vonatkozó szabályok</h3>
+            <ul class="rule-list">
+                <li>Tilos a trágár szavak, felnőtt tartalom, politikai megnyilvánulások használata.</li>
+                <li>Tilos a szerverrel kapcsolatos OOC fogalmak használata.</li>
+            </ul>
+
+            <h3 id="paintjob">Egyedi paintjobokra vonatkozó szabályok</h3>
+            <ul class="rule-list">
+                <li>Egyedi paintjob használatakor figyelni kell a kulturált viselkedésre.</li>
+                <li>Tilos a külső, script megkerülésével feltöltött képek használata (járműtörléssel járhat).</li>
+            </ul>
+
+            <h3 id="rablas">Rablással kapcsolatos szabályok</h3>
+            <ul class="rule-list">
+                <li>Rabláshoz szükséges az előRP!</li>
+                <li>Rablás során a maximális elvehető készpénz 500 000 $.</li>
+                <li>PP-s item, event item és 4-es szint alatti (kezdő) játékos rablása szigorúan tilos!</li>
+            </ul>
+
+            <h3 id="tuszejtes">Túszejtésre vonatkozó szabályok</h3>
+            <ul class="rule-list">
+                <li>Túszejtést kötelezően előRP-vel lehet szervezni.</li>
+                <li>Maximum 1 000 000 $ lehet a váltságdíj. Tilos megölni a túsztárgyalót!</li>
+            </ul>
+
+            <h3 id="atveres">Átveréssel kapcsolatos szabályok</h3>
+            <ul class="rule-list">
+                <li>Tilos átverni más embereket 500 000 $ érték felett (végleges kitiltás jár érte).</li>
+                <li>Tilos a PP-s itemekkel, event itemekkel, házakkal, garázsokkal és prémium kiegészítőkkel való átverés!</li>
+            </ul>
+
+            <h3 id="hirdetesek">Hirdetésekre vonatkozó szabályok</h3>
+            <ul class="rule-list">
+                <li>Tárgy, autó, ház adás-vétel hirdethető, normális magyar mondatokban.</li>
+                <li>Tilos hirdetésből rabolni/kirabolni.</li>
+            </ul>
+
+            <h3 id="atm">ATM Rablásra vonatkozó szabályok</h3>
+            <ul class="rule-list">
+                <li>ATM rablás előtt ajánlott az előRP. Helikopterrel tilos kazettát szállítani.</li>
+                <li>Tilos a gyár camp a rendvédelem részéről.</li>
+            </ul>
+
+            <br>
+            <a href="index.html" class="back-home">&larr; Vissza a főoldalra</a>
+        </div>
+    </div>
+
+</body>
+</html>

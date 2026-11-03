@@ -24,7 +24,7 @@
             line-height: 1.6;
         }
 
-        /* Bal felső sarok sáv (Visszatérés a főoldalra) */
+        /* Bal felső sarok sáv (Főoldalra navigálás) */
         .top-left-brand {
             position: fixed;
             top: 25px;
@@ -61,6 +61,15 @@
             text-transform: lowercase;
         }
 
+        .home-link-text {
+            color: #00CE9E;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-left: 8px;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 12px;
+        }
+
         /* Fő tartalom doboz */
         .container {
             max-width: 900px;
@@ -86,7 +95,7 @@
             text-shadow: 0 0 10px rgba(0, 206, 158, 0.3);
         }
 
-        /* Tartalomjegyzék - doboz nélkül */
+        /* Tartalomjegyzék sima szöveggel, keret nélkül */
         .toc {
             margin-bottom: 40px;
             padding: 0;
@@ -176,21 +185,6 @@
             color: #ff4d4d;
         }
 
-        /* Vissza gomb */
-        .back-home {
-            display: inline-block;
-            margin-top: 30px;
-            color: #00CE9E;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.2s;
-        }
-
-        .back-home:hover {
-            transform: translateX(-5px);
-            text-decoration: underline;
-        }
-
         @media (max-width: 768px) {
             .rules-card {
                 padding: 20px;
@@ -204,17 +198,18 @@
 </head>
 <body>
 
-    <!-- Bal felső sarok sáv (Visszatérés a főoldalra) -->
-    <a href="index.html" class="top-left-brand">
+    <!-- Bal felső sarok: Főoldalra navigáló sáv -->
+    <a href="index.html" class="top-left-brand" title="Vissza a főoldalra">
         <img src="logo.png" alt="RiseMTA Logo">
         <span>risemta.hu</span>
+        <span class="home-link-text">Főoldal</span>
     </a>
 
     <div class="container">
         <div class="rules-card">
             <h1>RiseMTA Discord Szabályzat</h1>
 
-            <!-- Tartalomjegyzék sima szöveggel, keret nélkül -->
+            <!-- Tartalomjegyzék -->
             <div class="toc">
                 <h2>Tartalomjegyzék:</h2>
                 <ul>
@@ -240,7 +235,7 @@
                 <li>Tilos a Discord-szerver működésének szándékos akadályozása.</li>
             </ul>
 
-            <!-- Fontos tudnivalók piros kiemeléssel -->
+            <!-- Fontos tudnivalók -->
             <h3 id="fontos-tudnivalok" class="red-title">⚠️ Fontos tudnivalók</h3>
             <ul class="rule-list red-list">
                 <li>A szabályzat nem ismerete nem mentesít a betartása alól.</li>
@@ -249,14 +244,12 @@
                 <li>A vezetőség fenntartja a jogot, hogy egyedi esetekben saját hatáskörben döntsön.</li>
             </ul>
 
-            <!-- Alsó szöveg simán, keret nélkül -->
+            <!-- Alsó szöveg külön gomb nélkül -->
             <div class="footer-note">
                 <p>Köszönjük, hogy betartod a szabályokat, és hozzájárulsz egy normális, barátságos közösség kialakításához!</p>
                 <strong>A vezetőség</strong>
             </div>
 
-            <br>
-            <a href="index.html" class="back-home">&larr; Vissza a főoldalra</a>
         </div>
     </div>
 

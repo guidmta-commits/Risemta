@@ -24,7 +24,7 @@
             line-height: 1.6;
         }
 
-        /* Bal felső sarok sáv */
+        /* Bal felső sarok sáv (Főoldalra navigálás) */
         .top-left-brand {
             position: fixed;
             top: 25px;
@@ -61,6 +61,15 @@
             text-transform: lowercase;
         }
 
+        .home-link-text {
+            color: #00CE9E;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-left: 8px;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 12px;
+        }
+
         /* Fő tartalom doboz */
         .container {
             max-width: 900px;
@@ -86,13 +95,12 @@
             text-shadow: 0 0 10px rgba(0, 206, 158, 0.3);
         }
 
-        /* Tartalomjegyzék */
+        /* Tartalomjegyzék - doboz nélkül */
         .toc {
-            background: rgba(25, 25, 25, 0.7);
-            border-left: 4px solid #00CE9E;
-            padding: 25px;
-            border-radius: 0 8px 8px 0;
             margin-bottom: 40px;
+            padding: 0;
+            background: transparent;
+            border: none;
         }
 
         .toc h2 {
@@ -153,21 +161,6 @@
             padding-left: 15px;
         }
 
-        /* Vissza gomb */
-        .back-home {
-            display: inline-block;
-            margin-top: 30px;
-            color: #00CE9E;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.2s;
-        }
-
-        .back-home:hover {
-            transform: translateX(-5px);
-            text-decoration: underline;
-        }
-
         @media (max-width: 768px) {
             .toc ul {
                 grid-template-columns: 1fr;
@@ -184,17 +177,18 @@
 </head>
 <body>
 
-    <!-- Bal felső sarok sáv (Visszatérés a főoldalra) -->
-    <a href="index.html" class="top-left-brand">
+    <!-- Bal felső sarok: Főoldalra navigáló sáv -->
+    <a href="index.html" class="top-left-brand" title="Vissza a főoldalra">
         <img src="logo.png" alt="RiseMTA Logo">
         <span>risemta.hu</span>
+        <span class="home-link-text">Főoldal</span>
     </a>
 
     <div class="container">
         <div class="rules-card">
             <h1>RiseMTA Szerver Szabályzat</h1>
 
-            <!-- Tartalomjegyzék -->
+            <!-- Tartalomjegyzék keret nélkül -->
             <div class="toc" id="tartalomjegyzék">
                 <h2>Tartalomjegyzék:</h2>
                 <ul>
@@ -373,8 +367,6 @@
                 <li>Tilos a gyár camp a rendvédelem részéről.</li>
             </ul>
 
-            <br>
-            <a href="index.html" class="back-home">&larr; Vissza a főoldalra</a>
         </div>
     </div>
 

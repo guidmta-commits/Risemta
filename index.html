@@ -6,7 +6,7 @@
     <title>RiseMTA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         /* Betöltő képernyő */
@@ -66,25 +66,20 @@
             border-radius: 2px;
         }
 
-        /* Weboldal tartalma */
+        /* Weboldal tartalma háttérképpel */
         #content {
             display: none;
             opacity: 0;
             transition: opacity 0.8s ease;
+            min-height: 100vh;
             width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('hatter.png') no-repeat center center / cover;
+            position: relative;
         }
 
         #content.show {
             display: block;
             opacity: 1;
-        }
-
-        /* Hero / Főoldali háttérkép rész */
-        .hero-section {
-            height: 100vh;
-            width: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('hatter.png') no-repeat center center / cover;
-            position: relative;
         }
 
         /* Bal felső sarok (Logo + Domain) */
@@ -113,7 +108,7 @@
             text-transform: lowercase;
         }
 
-        /* Jobb felső sarok menüpontok */
+        /* JOBB FELSŐ SAROK - MENÜPONTOK EGYMÁS MELLETT */
         .top-right-nav {
             position: absolute;
             top: 35px;
@@ -156,77 +151,6 @@
             width: 100%;
         }
 
-        /* Hírek szekció lefelé görgetve */
-        .news-section {
-            background-color: #0b0b0b;
-            padding: 80px 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .news-card {
-            max-width: 900px;
-            width: 100%;
-            background: rgba(15, 15, 15, 0.9);
-            border: 1px solid rgba(0, 206, 158, 0.2);
-            border-radius: 12px;
-            padding: 45px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            color: #e0e0e0;
-        }
-
-        .news-title {
-            color: #00CE9E;
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(0, 206, 158, 0.3);
-        }
-
-        .news-date {
-            color: #999999;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-        }
-
-        .news-tags {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: rgba(0, 206, 158, 0.15);
-            color: #00CE9E;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border: 1px solid rgba(0, 206, 158, 0.3);
-        }
-
-        .tag.date-tag {
-            background: rgba(220, 53, 69, 0.15);
-            color: #ff4d4d;
-            border-color: rgba(220, 53, 69, 0.3);
-        }
-
-        h3.section-heading {
-            color: #00CE9E;
-            font-size: 1.2rem;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 0.95rem;
-            color: #cccccc;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
         @media (max-width: 768px) {
             .top-left-brand {
                 top: 20px;
@@ -239,9 +163,6 @@
             }
             .nav-link {
                 font-size: 0.9rem;
-            }
-            .news-card {
-                padding: 20px;
             }
         }
     </style>
@@ -258,52 +179,17 @@
 
     <!-- Weboldal tartalma -->
     <div id="content">
-        <!-- Felső képernyő háttérképpel -->
-        <div class="hero-section">
-            <a href="index.html" class="top-left-brand">
-                <img src="logo.png" alt="RiseMTA Logo">
-                <span>risemta.hu</span>
-            </a>
+        <!-- Bal felső sarok -->
+        <a href="index.html" class="top-left-brand">
+            <img src="logo.png" alt="RiseMTA Logo">
+            <span>risemta.hu</span>
+        </a>
 
-            <div class="top-right-nav">
-                <a href="szabalyzat.html" class="nav-link">Szerver Szabályzat</a>
-                <a href="dcszabalyzat.html" class="nav-link">Discord Szabályzat</a>
-                <a href="#" class="nav-link">UCP</a>
-            </div>
-        </div>
-
-        <!-- Lefelé görgetve megjelenő Hírek szekció -->
-        <div class="news-section">
-            <div class="news-card">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00CE9E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
-                    <h2 style="color: #ffffff; font-size: 1.5rem; font-weight: 800;">Hírek</h2>
-                </div>
-
-                <h2 class="news-title">IV. Halloweeni Paintjob Szépségverseny!</h2>
-                <div class="news-date">2026. 10. 19. 13:37</div>
-
-                <div class="news-tags">
-                    <span class="tag">RiseMTA v1</span>
-                    <span class="tag">RiseMTA - San Andreas</span>
-                    <span class="tag date-tag">10. 19. - 11. 08.</span>
-                </div>
-
-                <h3 class="section-heading">Halloween Paintjob Szépségverseny 2026</h3>
-                <p>Az idei Halloweeni Event mellett ismét elindul a Halloween Paintjob Szépségverseny, ahol most is a legkreatívabb, legigényesebben elkészített halloweeni járműveket keressük!</p>
-                <p>A három legszebb alkotást ezúttal is értékes Prémium Pont nyereményekkel díjazzuk, az első helyezett pedig nem kevesebb mint 50 000 Prémium Ponttal lesz gazdagabb!</p>
-                <p>Idén ráadásul a Custom Paintjob rendszer új fejlesztésének köszönhetően még több lehetőségetek van egyedi alkotások készítésére. Mostantól saját képfájlokat, matricákat és mintázatokat is betölthettek, így még szabadabban valósíthatjátok meg az elképzeléseiteket!</p>
-
-                <h3 class="section-heading">Nevezési időszak</h3>
-                <p>A versenyre 2026. október 19-től november 8-ig nevezhettek.</p>
-                <p>Nem érdemes az utolsó pillanatig várni, hiszen a zsűrizés során a játékosok visszajelzéseit is figyelembe vesszük! A pozitív reakciók és hozzászólások ugyan nem kizárólagos szempontok, de egy szoros verseny esetén akár a végső helyezéseket is befolyásolhatják.</p>
-
-                <h3 class="section-heading">A verseny célja és szabályai</h3>
-                <p>A verseny célja, hogy a tuningműhelyben található Egyedi Paintjob szerkesztő segítségével a lehető legszebb, Halloween-tematikájú járművet készítsétek el.</p>
-                <p>– A nevezett járműnek a Halloween tematikájához kell illeszkednie.</p>
-                <p>– Nincs megkötve, hogy milyen járművel nevezhettek. Bármelyik típus megfelelő, amennyiben a Paintjob és a jármű összhatása igényes, kreatív és jól kidolgozott.</p>
-                <p>– Az értékelés során a legfontosabb szempont a Paintjob minősége és kreativitása, de a jármű megjelenése, tuningja és az alkotás összhatása is számít.</p>
-            </div>
+        <!-- Jobb felső sarok: Menüpontok egymás mellett, keret nélkül -->
+        <div class="top-right-nav">
+            <a href="szabalyzat.html" class="nav-link">Szerver Szabályzat</a>
+            <a href="dcszabalyzat.html" class="nav-link">Discord Szabályzat</a>
+            <a href="#" class="nav-link">UCP</a>
         </div>
     </div>
 
@@ -324,7 +210,6 @@
                     loader.style.opacity = '0';
                     setTimeout(() => {
                         loader.style.display = 'none';
-                        document.body.style.overflow = 'auto'; // Engedélyezi a görgetést betöltés után
                         content.classList.add('show');
                     }, 500);
                 }, 100);

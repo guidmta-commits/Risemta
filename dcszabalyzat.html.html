@@ -86,13 +86,12 @@
             text-shadow: 0 0 10px rgba(0, 206, 158, 0.3);
         }
 
-        /* Tartalomjegyzék */
+        /* Tartalomjegyzék - doboz nélkül */
         .toc {
-            background: rgba(25, 25, 25, 0.7);
-            border-left: 4px solid #00CE9E;
-            padding: 25px;
-            border-radius: 0 8px 8px 0;
             margin-bottom: 40px;
+            padding: 0;
+            background: transparent;
+            border: none;
         }
 
         .toc h2 {
@@ -116,6 +115,10 @@
             transition: color 0.2s;
         }
 
+        .toc li a.red-link {
+            color: #ff4d4d;
+        }
+
         .toc li a:hover {
             color: #ffffff;
             text-decoration: underline;
@@ -132,6 +135,11 @@
             scroll-margin-top: 90px;
         }
 
+        h3.red-title {
+            color: #ff4d4d;
+            border-bottom-color: rgba(255, 77, 77, 0.3);
+        }
+
         ul.rule-list {
             list-style-type: none;
             margin-bottom: 20px;
@@ -145,12 +153,16 @@
             color: #cccccc;
         }
 
+        ul.rule-list.red-list li {
+            border-left-color: rgba(255, 77, 77, 0.6);
+        }
+
+        /* Alsó szöveg doboz nélkül */
         .footer-note {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(0, 206, 158, 0.05);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 206, 158, 0.2);
+            margin-top: 40px;
+            padding: 0;
+            background: transparent;
+            border: none;
             text-align: center;
         }
 
@@ -161,7 +173,7 @@
         }
 
         .footer-note strong {
-            color: #00CE9E;
+            color: #ff4d4d;
         }
 
         /* Vissza gomb */
@@ -202,12 +214,12 @@
         <div class="rules-card">
             <h1>RiseMTA Discord Szabályzat</h1>
 
-            <!-- Tartalomjegyzék -->
+            <!-- Tartalomjegyzék sima szöveggel, keret nélkül -->
             <div class="toc">
                 <h2>Tartalomjegyzék:</h2>
                 <ul>
                     <li><a href="#discord-szabalyzat-pontok">Discord szabályzat pontjai</a></li>
-                    <li><a href="#fontos-tudnivalok">⚠️ Fontos tudnivalók</a></li>
+                    <li><a href="#fontos-tudnivalok" class="red-link">⚠️ Fontos tudnivalók</a></li>
                 </ul>
             </div>
 
@@ -228,15 +240,16 @@
                 <li>Tilos a Discord-szerver működésének szándékos akadályozása.</li>
             </ul>
 
-            <!-- Fontos tudnivalók -->
-            <h3 id="fontos-tudnivalok">⚠️ Fontos tudnivalók</h3>
-            <ul class="rule-list">
+            <!-- Fontos tudnivalók piros kiemeléssel -->
+            <h3 id="fontos-tudnivalok" class="red-title">⚠️ Fontos tudnivalók</h3>
+            <ul class="rule-list red-list">
                 <li>A szabályzat nem ismerete nem mentesít a betartása alól.</li>
                 <li>A szabályok megszegése figyelmeztetést, némítást, kirúgást vagy kitiltást vonhat maga után.</li>
                 <li>Az adminisztrátorok és moderátorok jogosultak intézkedni a szabályszegésekkel kapcsolatban.</li>
                 <li>A vezetőség fenntartja a jogot, hogy egyedi esetekben saját hatáskörben döntsön.</li>
             </ul>
 
+            <!-- Alsó szöveg simán, keret nélkül -->
             <div class="footer-note">
                 <p>Köszönjük, hogy betartod a szabályokat, és hozzájárulsz egy normális, barátságos közösség kialakításához!</p>
                 <strong>A vezetőség</strong>

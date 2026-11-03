@@ -74,19 +74,15 @@
             min-height: 100vh;
             width: 100%;
             background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('hatter.png') no-repeat center center / cover;
-            padding: 40px;
             position: relative;
         }
 
         #content.show {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            display: block;
             opacity: 1;
         }
 
-        /* Bal felső sarok sáv (Logo + Domain) */
+        /* Bal felső sarok (Logo + Domain) */
         .top-left-brand {
             position: absolute;
             top: 30px;
@@ -111,57 +107,47 @@
             text-transform: lowercase;
         }
 
-        .main-container {
+        /* JOBB FELSŐ SAROK - MENÜPONTOK EGYMÁS MELLETT */
+        .top-right-nav {
+            position: absolute;
+            top: 35px;
+            right: 40px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            max-width: 950px;
-            width: 100%;
-            margin-top: 140px; /* RISECITY felirat alá igazítva */
+            gap: 30px;
+            z-index: 10;
         }
 
-        .cards-grid {
-            display: flex;
-            gap: 20px;
-            width: 100%;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            flex: 1;
-            min-width: 250px;
-            max-width: 290px;
-            background: rgba(15, 15, 15, 0.85);
-            border: 1px solid rgba(0, 206, 158, 0.2);
-            border-radius: 12px;
-            padding: 35px 25px;
-            text-align: center;
+        .nav-link {
             text-decoration: none;
             color: #ffffff;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
-        }
-
-        .card:hover {
-            transform: translateY(-7px);
-            border-color: #00CE9E;
-            box-shadow: 0 8px 25px rgba(0, 206, 158, 0.3);
-            background: rgba(20, 20, 20, 0.95);
-        }
-
-        .card h2 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            color: #00CE9E;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            position: relative;
+            padding-bottom: 4px;
         }
 
-        .card p {
-            font-size: 0.85rem;
-            color: #b0b0b0;
-            font-weight: 500;
-            line-height: 1.4;
+        .nav-link:hover {
+            color: #00CE9E;
+            text-shadow: 0 0 10px rgba(0, 206, 158, 0.8);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #00CE9E;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px rgba(0, 206, 158, 0.8);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -169,8 +155,13 @@
                 top: 20px;
                 left: 20px;
             }
-            .main-container {
-                margin-top: 100px;
+            .top-right-nav {
+                top: 25px;
+                right: 20px;
+                gap: 15px;
+            }
+            .nav-link {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -193,24 +184,11 @@
             <span>risemta.hu</span>
         </div>
 
-        <!-- RISECITY alá igazított kártyák -->
-        <div class="main-container">
-            <div class="cards-grid">
-                <a href="szabalyzat.html" class="card">
-                    <h2>Szerver Szabályzat</h2>
-                    <p>Olvasd el a szerver alapvető viselkedési és RP szabályait.</p>
-                </a>
-                
-                <a href="#" class="card">
-                    <h2>Discord Szabályzat</h2>
-                    <p>Ismerd meg a közösségi Discord szerverünk szabályait.</p>
-                </a>
-                
-                <a href="#" class="card">
-                    <h2>UCP</h2>
-                    <p>Jelentkezz be a felhasználói fiókodba és kezeld a karaktered.</p>
-                </a>
-            </div>
+        <!-- Jobb felső sarok: Menüpontok egymás mellett, keret nélkül -->
+        <div class="top-right-nav">
+            <a href="szabalyzat.html" class="nav-link">Szerver Szabályzat</a>
+            <a href="#" class="nav-link">Discord Szabályzat</a>
+            <a href="#" class="nav-link">UCP</a>
         </div>
     </div>
 

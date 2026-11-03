@@ -24,7 +24,7 @@
             line-height: 1.6;
         }
 
-        /* Bal felső sarok sáv (Főoldalra navigálás) */
+        /* Bal felső sarok sáv */
         .top-left-brand {
             position: fixed;
             top: 25px;
@@ -61,15 +61,6 @@
             text-transform: lowercase;
         }
 
-        .home-link-text {
-            color: #00CE9E;
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-left: 8px;
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
-            padding-left: 12px;
-        }
-
         /* Fő tartalom doboz */
         .container {
             max-width: 900px;
@@ -95,7 +86,7 @@
             text-shadow: 0 0 10px rgba(0, 206, 158, 0.3);
         }
 
-        /* Tartalomjegyzék - doboz nélkül */
+        /* Tartalomjegyzék */
         .toc {
             margin-bottom: 40px;
             padding: 0;
@@ -161,6 +152,21 @@
             padding-left: 15px;
         }
 
+        /* Vissza gomb lent */
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: #00CE9E;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+
+        .back-home:hover {
+            transform: translateX(-5px);
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .toc ul {
                 grid-template-columns: 1fr;
@@ -177,18 +183,15 @@
 </head>
 <body>
 
-    <!-- Bal felső sarok: Főoldalra navigáló sáv -->
-    <a href="index.html" class="top-left-brand" title="Vissza a főoldalra">
-        <img src="logo.png" alt="RiseMTA Logo">
+    <a href="index.html" class="top-left-brand">
+        <img src="logo.png" alt="Rise Logo">
         <span>risemta.hu</span>
-        <span class="home-link-text">Főoldal</span>
     </a>
 
     <div class="container">
         <div class="rules-card">
             <h1>RiseMTA Szerver Szabályzat</h1>
 
-            <!-- Tartalomjegyzék keret nélkül -->
             <div class="toc" id="tartalomjegyzék">
                 <h2>Tartalomjegyzék:</h2>
                 <ul>
@@ -212,7 +215,6 @@
                 </ul>
             </div>
 
-            <!-- Szabályzat Tartalom -->
             <h3 id="kommunikacio">Kommunikációt elősegítő szavak, fogalmak</h3>
             <ul class="rule-list">
                 <li><strong>-HQ</strong><div class="sub-desc">↳ Egy adott frakció bázisa.</div></li>
@@ -367,6 +369,8 @@
                 <li>Tilos a gyár camp a rendvédelem részéről.</li>
             </ul>
 
+            <br>
+            <a href="index.html" class="back-home">&larr; Vissza a főoldalra</a>
         </div>
     </div>
 

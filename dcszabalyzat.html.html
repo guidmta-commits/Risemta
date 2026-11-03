@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiseMTA - Discord Szabályzat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('hatter.png') no-repeat center center fixed;
+            background-size: cover;
+            line-height: 1.6;
+        }
+
+        /* Bal felső sarok sáv (Visszatérés a főoldalra) */
+        .top-left-brand {
+            position: fixed;
+            top: 25px;
+            left: 35px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 100;
+            background: rgba(15, 15, 15, 0.85);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 206, 158, 0.2);
+            backdrop-filter: blur(8px);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .top-left-brand:hover {
+            border-color: #00CE9E;
+            box-shadow: 0 0 15px rgba(0, 206, 158, 0.3);
+        }
+
+        .top-left-brand img {
+            width: 35px;
+            height: auto;
+            filter: drop-shadow(0 0 6px rgba(0, 206, 158, 0.5));
+        }
+
+        .top-left-brand span {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: lowercase;
+        }
+
+        /* Fő tartalom doboz */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px 60px 20px;
+        }
+
+        .rules-card {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid rgba(0, 206, 158, 0.2);
+            border-radius: 12px;
+            padding: 45px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #00CE9E;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 35px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 206, 158, 0.3);
+        }
+
+        /* Tartalomjegyzék */
+        .toc {
+            background: rgba(25, 25, 25, 0.7);
+            border-left: 4px solid #00CE9E;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 40px;
+        }
+
+        .toc h2 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toc li a {
+            color: #00CE9E;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .toc li a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Szabályzat Tartalom */
+        h3 {
+            color: #00CE9E;
+            font-size: 1.4rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            scroll-margin-top: 90px;
+        }
+
+        ul.rule-list {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        ul.rule-list li {
+            margin-bottom: 14px;
+            padding-left: 15px;
+            border-left: 2px solid rgba(0, 206, 158, 0.4);
+            font-size: 0.95rem;
+            color: #cccccc;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 206, 158, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 206, 158, 0.2);
+            text-align: center;
+        }
+
+        .footer-note p {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-note strong {
+            color: #00CE9E;
+        }
+
+        /* Vissza gomb */
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: #00CE9E;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+
+        .back-home:hover {
+            transform: translateX(-5px);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .rules-card {
+                padding: 20px;
+            }
+            .top-left-brand {
+                top: 15px;
+                left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bal felső sarok sáv (Visszatérés a főoldalra) -->
+    <a href="index.html" class="top-left-brand">
+        <img src="logo.png" alt="RiseMTA Logo">
+        <span>risemta.hu</span>
+    </a>
+
+    <div class="container">
+        <div class="rules-card">
+            <h1>RiseMTA Discord Szabályzat</h1>
+
+            <!-- Tartalomjegyzék -->
+            <div class="toc">
+                <h2>Tartalomjegyzék:</h2>
+                <ul>
+                    <li><a href="#discord-szabalyzat-pontok">Discord szabályzat pontjai</a></li>
+                    <li><a href="#fontos-tudnivalok">⚠️ Fontos tudnivalók</a></li>
+                </ul>
+            </div>
+
+            <!-- Discord szabályzat -->
+            <h3 id="discord-szabalyzat-pontok">Discord Szabályzat</h3>
+            <ul class="rule-list">
+                <li>Tilos bármilyen rangot, jogosultságot vagy pozíciót kéregetni a vezetőségtől!</li>
+                <li>Tilos más játékosok zaklatása, sértegetése vagy fenyegetése.</li>
+                <li>Tilos másokat a koruk, származásuk, nemzetiségük vagy egyéb tulajdonságuk miatt hátrányosan megkülönböztetni.</li>
+                <li>Tilos a szobáról szobára történő indokolatlan átjárkálás és mások zavarása.</li>
+                <li>Tilos más Discord-szerverek vagy közösségek reklámozása engedély nélkül.</li>
+                <li>Tilos a hangtorzító programok használata a Discord hangcsatornáin.</li>
+                <li>Tilos másokról hang- vagy videófelvételt készíteni az érintettek engedélye nélkül.</li>
+                <li>Tilos a közösséghez nem illő, sértő vagy provokatív profilkép használata.</li>
+                <li>Tilos a sértő, obszcén vagy másokat provokáló felhasználónév használata.</li>
+                <li>Tilos a spam, flood, felesleges pingelés és a csatornák rendeltetésellenes használata.</li>
+                <li>Tilos a vezetőség vagy a többi játékos szándékos félrevezetése.</li>
+                <li>Tilos a Discord-szerver működésének szándékos akadályozása.</li>
+            </ul>
+
+            <!-- Fontos tudnivalók -->
+            <h3 id="fontos-tudnivalok">⚠️ Fontos tudnivalók</h3>
+            <ul class="rule-list">
+                <li>A szabályzat nem ismerete nem mentesít a betartása alól.</li>
+                <li>A szabályok megszegése figyelmeztetést, némítást, kirúgást vagy kitiltást vonhat maga után.</li>
+                <li>Az adminisztrátorok és moderátorok jogosultak intézkedni a szabályszegésekkel kapcsolatban.</li>
+                <li>A vezetőség fenntartja a jogot, hogy egyedi esetekben saját hatáskörben döntsön.</li>
+            </ul>
+
+            <div class="footer-note">
+                <p>Köszönjük, hogy betartod a szabályokat, és hozzájárulsz egy normális, barátságos közösség kialakításához!</p>
+                <strong>A vezetőség</strong>
+            </div>
+
+            <br>
+            <a href="index.html" class="back-home">&larr; Vissza a főoldalra</a>
+        </div>
+    </div>
+
+</body>
+</html>

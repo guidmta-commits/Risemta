@@ -17,7 +17,7 @@
         }
 
         body {
-            /* Tiszta fekete háttér */
+            /* Tiszta fekete háttér, semmit nem teszünk alá */
             background-color: #000000;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
@@ -53,25 +53,21 @@
             text-transform: lowercase;
         }
 
-        /* Bejelentkező panel doboz középen */
-        .login-card {
-            background: #111111;
-            border: 1px solid rgba(0, 206, 158, 0.3);
-            border-radius: 12px;
-            width: 100%;
-            max-width: 400px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        /* Nincs doboz háttér, csak egy tiszta középre rendezett tartalom */
+        .login-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
         }
 
         .login-logo {
-            width: 60px;
+            width: 65px;
             height: auto;
             margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(0, 206, 158, 0.6));
+            filter: drop-shadow(0 0 12px rgba(0, 206, 158, 0.6));
         }
 
         .login-title {
@@ -80,7 +76,7 @@
             letter-spacing: 2px;
             color: #ffffff;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         /* Input mezők */
@@ -91,9 +87,9 @@
 
         .input-group input {
             width: 100%;
-            padding: 14px 18px;
-            background: #1a1a1a;
-            border: 1px solid #333333;
+            padding: 15px 18px;
+            background: #111111;
+            border: 1px solid #222222;
             border-radius: 8px;
             color: #ffffff;
             font-size: 1rem;
@@ -108,13 +104,13 @@
         }
 
         .input-group input::placeholder {
-            color: #777777;
+            color: #666666;
         }
 
         /* Bejelentkezés gomb */
         .btn-login {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background-color: #00CE9E;
             color: #000000;
             border: none;
@@ -138,9 +134,8 @@
                 top: 20px;
                 left: 20px;
             }
-            .login-card {
+            .login-container {
                 max-width: 90%;
-                padding: 30px 20px;
             }
         }
     </style>
@@ -153,8 +148,8 @@
         <span>risemta.hu</span>
     </a>
 
-    <!-- Középső bejelentkező doboz -->
-    <div class="login-card">
+    <!-- Tiszta felület doboz nélkül -->
+    <div class="login-container">
         <img src="logo.png" alt="RiseMTA Logo" class="login-logo">
         <div class="login-title">RiseMTA UCP</div>
 

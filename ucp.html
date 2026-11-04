@@ -17,8 +17,7 @@
         }
 
         body {
-            /* ITT A VÁLTOZÁS: Az egész oldal háttere mostantól szürke */
-            background-color: #2b2b2b !important;
+            background-color: #333333 !important;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
@@ -53,7 +52,7 @@
             text-transform: lowercase;
         }
 
-        /* Nincs háttérdoboz/kártya! Közvetlenül a szürke háttéren van minden. */
+        /* Nincs háttérdoboz, nincs kártya! */
         .login-container {
             display: flex;
             flex-direction: column;
@@ -65,7 +64,6 @@
             box-shadow: none !important;
         }
 
-        /* Címsor és alcím felül */
         .login-header {
             text-align: center;
             margin-bottom: 30px;
@@ -80,11 +78,10 @@
 
         .login-header p {
             font-size: 0.9rem;
-            color: #aaaaaa;
+            color: #cccccc;
             line-height: 1.4;
         }
 
-        /* Input csoportok felirattal */
         .input-group {
             width: 100%;
             margin-bottom: 20px;
@@ -101,8 +98,8 @@
         .input-group input {
             width: 100%;
             padding: 14px 18px;
-            background: #1f1f1f;
-            border: 1px solid #3d3d3d;
+            background: #222222;
+            border: 1px solid #444444;
             border-radius: 8px;
             color: #ffffff;
             font-size: 1rem;
@@ -116,11 +113,6 @@
             box-shadow: 0 0 10px rgba(0, 206, 158, 0.3);
         }
 
-        .input-group input::placeholder {
-            color: #777777;
-        }
-
-        /* Bejelentkezés gomb */
         .btn-login {
             width: 100%;
             padding: 15px;
@@ -159,13 +151,11 @@
 </head>
 <body>
 
-    <!-- Vissza a főoldalra gomb bal felül -->
     <a href="index.html" class="top-left-brand">
         <img src="logo.png" alt="RiseMTA Logo">
         <span>risemta.hu</span>
     </a>
 
-    <!-- Bejelentkezési felület háttérdoboz nélkül, közvetlenül a szürke háttéren -->
     <div class="login-container">
         <div class="login-header">
             <h1>Bejelentkezés</h1>

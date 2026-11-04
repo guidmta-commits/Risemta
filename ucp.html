@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,7 +17,6 @@
         }
 
         body {
-            /* Tiszta fekete háttér, semmit nem teszünk alá */
             background-color: #000000;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
@@ -53,41 +52,52 @@
             text-transform: lowercase;
         }
 
-        /* Nincs doboz háttér, csak egy tiszta középre rendezett tartalom */
+        /* Középső tartalom doboz háttér nélkül */
         .login-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
             width: 100%;
-            max-width: 350px;
+            max-width: 380px;
             padding: 20px;
         }
 
-        .login-logo {
-            width: 65px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 12px rgba(0, 206, 158, 0.6));
+        /* Címsor és alcím felül */
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .login-title {
-            font-size: 1.1rem;
+        .login-header h1 {
+            font-size: 1.6rem;
             font-weight: 800;
-            letter-spacing: 2px;
             color: #ffffff;
-            text-transform: uppercase;
-            margin-bottom: 35px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
-        /* Input mezők */
+        .login-header p {
+            font-size: 0.9rem;
+            color: #888888;
+            line-height: 1.4;
+        }
+
+        /* Input csoportok felirattal */
         .input-group {
             width: 100%;
             margin-bottom: 20px;
         }
 
+        .input-group label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
         .input-group input {
             width: 100%;
-            padding: 15px 18px;
+            padding: 14px 18px;
             background: #111111;
             border: 1px solid #222222;
             border-radius: 8px;
@@ -104,14 +114,14 @@
         }
 
         .input-group input::placeholder {
-            color: #666666;
+            color: #555555;
         }
 
         /* Bejelentkezés gomb */
         .btn-login {
             width: 100%;
             padding: 15px;
-            background-color: #00CE9E;
+            background-color: #ffffff;
             color: #000000;
             border: none;
             border-radius: 8px;
@@ -120,12 +130,16 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 206, 158, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
         }
 
         .btn-login:hover {
-            background-color: #00b58a;
+            background-color: #00CE9E;
             box-shadow: 0 0 20px rgba(0, 206, 158, 0.6);
         }
 
@@ -148,20 +162,26 @@
         <span>risemta.hu</span>
     </a>
 
-    <!-- Tiszta felület doboz nélkül -->
+    <!-- Bejelentkezési felület -->
     <div class="login-container">
-        <img src="logo.png" alt="RiseMTA Logo" class="login-logo">
-        <div class="login-title">RiseMTA UCP</div>
-
-        <div class="input-group">
-            <input type="text" placeholder="Felhasználónév" required>
+        <div class="login-header">
+            <h1>Bejelentkezés</h1>
+            <p>Add meg az adataid, melyekkel<br>InGame regisztráltál.</p>
         </div>
 
         <div class="input-group">
-            <input type="password" placeholder="Jelszó" required>
+            <label>Felhasználónév</label>
+            <input type="text" placeholder="" required>
         </div>
 
-        <button class="btn-login" onclick="alert('Bejelentkezés hamarosan!')">Bejelentkezés</button>
+        <div class="input-group">
+            <label>Jelszó</label>
+            <input type="password" placeholder="" required>
+        </div>
+
+        <button class="btn-login" onclick="alert('Bejelentkezés hamarosan!')">
+            → Bejelentkezés
+        </button>
     </div>
 
 </body>

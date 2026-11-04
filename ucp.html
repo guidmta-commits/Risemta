@@ -17,7 +17,8 @@
         }
 
         body {
-            background-color: #000000;
+            /* Az egész oldal háttere sötétszürke */
+            background-color: #111413;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
@@ -52,17 +53,13 @@
             text-transform: lowercase;
         }
 
-        /* A szürke táblázat / panel doboz középen */
-        .login-card {
-            background: #111413;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            width: 100%;
-            max-width: 420px;
-            padding: 40px 35px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+        /* Középső konténer semmilyen háttérdoboz nélkül */
+        .login-container {
             display: flex;
             flex-direction: column;
+            width: 100%;
+            max-width: 380px;
+            padding: 20px;
         }
 
         /* Címsor és alcím felül */
@@ -151,9 +148,8 @@
                 top: 20px;
                 left: 20px;
             }
-            .login-card {
+            .login-container {
                 max-width: 90%;
-                padding: 30px 20px;
             }
         }
     </style>
@@ -166,8 +162,8 @@
         <span>risemta.hu</span>
     </a>
 
-    <!-- Szürke táblázat / panel doboz -->
-    <div class="login-card">
+    <!-- Bejelentkezési felület háttérdoboz nélkül, közvetlenül a szürke háttéren -->
+    <div class="login-container">
         <div class="login-header">
             <h1>Bejelentkezés</h1>
             <p>Add meg az adataid, melyekkel<br>InGame regisztráltál.</p>

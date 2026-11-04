@@ -21,12 +21,14 @@
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('hatter.png') no-repeat center center fixed;
+            /* UCP specifikus háttérkép: ucp.hatter.png, sötétített, modern lila-kék/sötét tónusú alappal */
+            background: linear-gradient(rgba(10, 10, 25, 0.85), rgba(15, 10, 30, 0.85)), url('ucp.hatter.png') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            overflow: hidden;
         }
 
         /* Bal felső sarok: Vissza a főoldalra */
@@ -38,24 +40,24 @@
             align-items: center;
             gap: 12px;
             z-index: 100;
-            background: rgba(15, 15, 15, 0.85);
+            background: rgba(15, 15, 25, 0.85);
             padding: 8px 16px;
             border-radius: 8px;
-            border: 1px solid rgba(0, 206, 158, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.3);
             backdrop-filter: blur(8px);
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .top-left-brand:hover {
-            border-color: #00CE9E;
-            box-shadow: 0 0 15px rgba(0, 206, 158, 0.3);
+            border-color: #8a2be2;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
         }
 
         .top-left-brand img {
             width: 35px;
             height: auto;
-            filter: drop-shadow(0 0 6px rgba(0, 206, 158, 0.5));
+            filter: drop-shadow(0 0 6px rgba(138, 43, 226, 0.6));
         }
 
         .top-left-brand span {
@@ -66,60 +68,63 @@
             text-transform: lowercase;
         }
 
-        /* Fő login konténer */
-        .login-wrapper {
+        /* Modern, elegáns, átlátszó login kártya középre igazítva */
+        .login-card {
+            background: rgba(18, 18, 30, 0.75);
+            border: 1px solid rgba(138, 43, 226, 0.25);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 35px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
-            max-width: 420px;
-            padding: 20px;
         }
 
-        /* Logó és felirat a doboz felett */
-        .login-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .login-header img {
-            width: 65px;
+        /* Logó és felirat a panel tetején */
+        .login-logo {
+            width: 60px;
             height: auto;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 0 10px rgba(0, 206, 158, 0.6));
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 12px rgba(138, 43, 226, 0.7));
         }
 
-        .login-header h2 {
+        .login-title {
             font-size: 1rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: #dcdcdc;
+            letter-spacing: 2.5px;
+            color: #e0e0e0;
             text-transform: uppercase;
+            margin-bottom: 30px;
         }
 
-        /* Sötét login doboz */
-        .login-box {
-            background: rgba(18, 22, 20, 0.92);
-            border: 1px solid rgba(0, 206, 158, 0.25);
-            border-radius: 6px;
+        /* Input mezők konténer */
+        .input-container {
             width: 100%;
+            background: rgba(10, 10, 18, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
+            margin-bottom: 25px;
         }
 
         .input-group {
             display: flex;
             align-items: center;
-            padding: 16px 20px;
+            padding: 15px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .input-group:last-child {
+            border-bottom: none;
         }
 
         .input-group svg {
             width: 20px;
             height: 20px;
-            fill: #999999;
+            fill: #a0a0c0;
             margin-right: 15px;
             flex-shrink: 0;
         }
@@ -135,15 +140,16 @@
         }
 
         .input-group input::placeholder {
-            color: #777777;
+            color: #707090;
         }
 
-        /* Gombok stílusa */
-        .btn {
+        /* Modern lila-kék bejelentkezés gomb */
+        .btn-login {
             width: 100%;
-            padding: 16px;
+            padding: 15px;
             border: none;
             outline: none;
+            border-radius: 10px;
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
             font-weight: 600;
@@ -152,18 +158,16 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: background 0.2s ease;
-        }
-
-        .btn-login {
-            background: rgba(35, 42, 39, 0.9);
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             color: #ffffff;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 15px rgba(37, 117, 252, 0.35);
+            transition: all 0.3s ease;
         }
 
         .btn-login:hover {
-            background: rgba(0, 206, 158, 0.2);
-            color: #00CE9E;
+            opacity: 0.95;
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
+            transform: translateY(-1px);
         }
 
         .btn-login svg {
@@ -172,44 +176,32 @@
             fill: currentColor;
         }
 
-        .btn-register {
-            background: rgba(25, 30, 28, 0.9);
-            color: #cccccc;
-        }
-
-        .btn-register:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-        }
-
         @media (max-width: 768px) {
             .top-left-brand {
                 top: 15px;
                 left: 15px;
             }
-            .login-wrapper {
-                padding: 15px;
+            .login-card {
+                max-width: 90%;
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Vissza a főoldalra gomb bal felül -->
+    <!-- Bal felső sarok: Vissza a főoldalra -->
     <a href="index.html" class="top-left-brand" title="Vissza a főoldalra">
         <img src="logo.png" alt="RiseMTA Logo">
         <span>risemta.hu</span>
     </a>
 
-    <div class="login-wrapper">
-        <!-- Fenti logó és felirat -->
-        <div class="login-header">
-            <img src="logo.png" alt="Rise Logo">
-            <h2>RISEMTA OFFICIAL</h2>
-        </div>
+    <!-- Középre igazított, elegáns bejelentkezési panel -->
+    <div class="login-card">
+        <img src="logo.png" alt="Rise Logo" class="login-logo">
+        <div class="login-title">RISEMTA UCP</div>
 
-        <!-- Bejelentkező panel doboz -->
-        <div class="login-box">
+        <div class="input-container">
             <!-- Felhasználónév mező -->
             <div class="input-group">
                 <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
@@ -217,22 +209,17 @@
             </div>
 
             <!-- Jelszó mező -->
-            <div class="input-group" style="border-bottom: none;">
+            <div class="input-group">
                 <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
                 <input type="password" placeholder="Jelszó" required>
             </div>
-
-            <!-- Bejelentkezés gomb -->
-            <button class="btn btn-login" onclick="alert('Bejelentkezés funkció hamarosan!')">
-                <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v3H3v4h7v3zM19 3H5c-1.1 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
-                Bejelentkezés
-            </button>
-
-            <!-- Regisztráció gomb -->
-            <button class="btn btn-register" onclick="alert('Regisztráció funkció hamarosan!')">
-                + Regisztráció
-            </button>
         </div>
+
+        <!-- Bejelentkezés gomb -->
+        <button class="btn-login" onclick="alert('Bejelentkezés funkció hamarosan!')">
+            <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v3H3v4h7v3zM19 3H5c-1.1 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+            Bejelentkezés
+        </button>
     </div>
 
 </body>
